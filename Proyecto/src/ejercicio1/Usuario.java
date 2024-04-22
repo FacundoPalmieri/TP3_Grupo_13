@@ -1,6 +1,6 @@
 package ejercicio1;
 
-public class Usuario {
+public class Usuario implements Comparable<Usuario>{
 	
 	private int id;
 	private String nombre;
@@ -34,6 +34,11 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nombre=" + nombre + "]";
+	}
+
+	@Override
+	public int compareTo(Usuario otroUsuario) {
+		return this.nombre.compareTo(otroUsuario.nombre);
 	}
 	
 	
