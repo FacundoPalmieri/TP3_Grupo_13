@@ -14,7 +14,8 @@ public class Principal {
 			archivo.creaArchivo();
 		}
 		
-		archivo.lee_lineas();
+		
+		TreeSet<Usuario> listaUsuarios = new TreeSet<>();
 		
 
 	}

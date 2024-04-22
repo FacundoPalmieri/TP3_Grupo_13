@@ -22,6 +22,10 @@ public class Archivo {
 	public String getruta() {
 		return ruta;
 	}
+	
+	public void setRuta(String ruta) {
+	       this.ruta = ruta;
+	 }
 
 	public void setruta(String ruta) {
 		this.ruta = ruta;
@@ -73,19 +77,21 @@ public class Archivo {
 	
 	//-------------------------------------------------------------------------------
 	
-	//Funcion Leer lineas
-    public void lee_lineas() {
-        try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
-            }
-        } catch (IOException e) {
-            System.out.println("No se pudo leer el archivo.");
-        }
-    }
+	//Funcion retornar lineas
+	
+		public String lee_lineas() {
+		    StringBuilder contenidoArchivo = new StringBuilder();
+		    try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
+		        String linea;
+		        while ((linea = br.readLine()) != null) {
+		            contenidoArchivo.append(linea).append("\n");
+		        }
+		    } catch (IOException e) {
+		        System.out.println("No se pudo leer el archivo.");
+		    }
+		    return contenidoArchivo.toString();
+		}
+		
 
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
-    }
+   
 }
