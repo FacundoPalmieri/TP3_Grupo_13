@@ -43,6 +43,21 @@ public class Archivo {
 	
 	//-------------------------------------------------------------------------------
 	// crearArchivo
+	public boolean creaArchivo(Usuario usuarioNuevo)
+	{
+		FileWriter escritura;
+		try {
+			escritura = new FileWriter(ruta, true);
+			escritura.write("");
+			escritura.close();
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
+			
+	}
+	
 	public boolean creaArchivo()
 	{
 		FileWriter escritura;
