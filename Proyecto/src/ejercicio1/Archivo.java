@@ -48,7 +48,7 @@ public class Archivo {
 		FileWriter escritura;
 		try {
 			escritura = new FileWriter(ruta, true);
-			escritura.write("");
+			escritura.write(usuarioNuevo.toString());
 			escritura.close();
 			return true;
 		} catch (IOException e) {
