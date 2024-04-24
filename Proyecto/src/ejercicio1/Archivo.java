@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Archivo {
 	
@@ -101,12 +102,38 @@ public class Archivo {
 		        while ((linea = br.readLine()) != null) {
 		            contenidoArchivo.append(linea).append("\n");
 		        }
+		        br.close();
 		    } catch (IOException e) {
 		        System.out.println("No se pudo leer el archivo.");
 		    }
 		    return contenidoArchivo.toString();
 		}
 		
-
+		
+		
+		//Funcion retornar usuarios en una lista de tipo Usuario
+		
+		public ArrayList<Usuario> retornarUsuarios() {
+			FileReader entrada;
+			ArrayList<Usuario> usuarios=new ArrayList<Usuario>();
+			try {
+				entrada=new FileReader(ruta);
+				BufferedReader br = new BufferedReader(entrada);
+				String linea;
+				while((linea=br.readLine())!=null){
+					String partes[]=linea.split("-");
+					if(partes.length==2) {
+						Usuario usuario = new Usuario(Integer.parseInt(partes[0]),partes[1]);
+						usuarios.add(usuario);
+					}
+				}
+				br.close();
+				entrada.close();
+			}
+			catch(IOException e){
+				System.out.println("No se pudo leer el archivo.");
+			}
+			return usuarios;
+		}
    
 }

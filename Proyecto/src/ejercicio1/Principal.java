@@ -9,7 +9,6 @@ public class Principal {
 
 	public static void main(String[] args) {
 	
-		Usuario usuario = new Usuario();
 		TreeSet<Usuario> listaUsuario = new TreeSet<Usuario>();
 		Archivo archivo = new Archivo("Usuarios.txt");
 		
@@ -17,7 +16,8 @@ public class Principal {
 			archivo.creaArchivo();
 		}
 		
-
+		
+		
         try (BufferedReader br = new BufferedReader(new FileReader(archivo.getruta()))) {
             String linea;
             while ((linea = br.readLine()) != null) {
@@ -46,5 +46,22 @@ public class Principal {
         for (Usuario u : listaUsuario) {
             System.out.println(u);
         }
+		
+		
+        /*
+		for (Usuario u : archivo.retornarUsuarios()) {
+            try {
+            	Usuario.verificarUsuarioInvalido(u.getNombre());
+            	listaUsuario.add(u);
+            }
+			catch(UsuarioInvalidoException e){
+				System.out.println(u.getNombre()+" "+e.getMessage());
+			}
+        }
+		
+		System.out.println("\n"+"Usuarios válidos:");
+		for (Usuario u : listaUsuario) {
+            System.out.println(u);
+        }*/
     }
 }
