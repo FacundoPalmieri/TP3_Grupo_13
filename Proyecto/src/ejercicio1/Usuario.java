@@ -4,10 +4,12 @@ public class Usuario implements Comparable<Usuario>{
 	
 	private int id;
 	private String nombre;
+	private static int contador=0;
 	
 	// Constructores
 	public Usuario() {
-		this.id = 0;
+		contador++;
+		this.id = contador;
 		this.nombre = "Sin Nombre";	
 	}
 	
